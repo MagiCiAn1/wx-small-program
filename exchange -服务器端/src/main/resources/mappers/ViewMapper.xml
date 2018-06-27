@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.srg.exchange.dao.ViewMapper" >
+  <resultMap id="BaseResultMap" type="com.srg.exchange.pojo.View" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="classify" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="del" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ViewVoMap" type="com.srg.exchange.vo.ViewVo" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="classify" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String"/>
+      <arg column="avatarurl" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, classify, content, create_time, update_time ,del
+  </sql>
+  <sql id="ViewVo_column_List" >
+    view.id as id,view.user_id as user_id,view.classify as classify, view.content as content,view.create_time as create_time,
+    view.update_time as update_time,user.username as username,user.avatarurl as avatarurl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from view
+    where id = #{id,jdbcType=INTEGER}
+    AND del = 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from view
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.srg.exchange.pojo.View" >
+    insert into view (id, user_id, classify, content,del,
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{classify,jdbcType=INTEGER},
+    #{content,jdbcType=VARCHAR}, 1, now(), now())
+  </insert>
+  <insert id="insertSelective" parameterType="com.srg.exchange.pojo.View" >
+    insert into view
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="classify != null">
+        classify,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        now(),
+      </if>
+      <if test="updateTime != null" >
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.srg.exchange.pojo.View" >
+    update view
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null" >
+        classify = #{classify,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = now(),
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+    AND del = 1
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.srg.exchange.pojo.View" >
+    update view
+    set user_id = #{userId,jdbcType=VARCHAR},
+      classify = #{classify,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+    AND del = 1
+  </update>
+  <select id="selectList" parameterType="map" resultMap="ViewVoMap">
+    SELECT
+    <include refid="ViewVo_column_List"/>
+    FROM user,view
+    WHERE user.user_id = view.user_id
+    and view.del = 1
+    ORDER by view.id DESC
+    limit #{start},#{end}
+  </select>
+  <select id="selectIdByUserId" parameterType="string" resultType="int">
+    select id
+    from view
+    where user_id = #{userId}
+    and view.del = 1
+    ORDER by create_time DESC
+    limit 0,1;
+  </select>
+  <select id="selectViewVoByViewId" resultMap="ViewVoMap" parameterType="int">
+    SELECT
+    <include refid="ViewVo_column_List"/>
+    FROM user,view
+    WHERE view.id = #{viewId}
+    and view.del = 1
+    AND user.user_id = view.user_id
+  </select>
+  <select id="selectListByClassify" parameterType="map" resultMap="ViewVoMap">
+    SELECT
+    <include refid="ViewVo_column_List"/>
+    FROM user,view
+    WHERE view.classify = #{classify}
+    and view.del = 1
+    and user.user_id = view.user_id
+    ORDER by view.id DESC
+    limit #{start},#{end}
+  </select>
+  <!--<select id="selectListByUserId" parameterType="map" resultMap="ViewVoMap">-->
+    <!--SELECT-->
+    <!--<include refid="ViewVo_column_List"/>-->
+    <!--FROM user,view-->
+    <!--WHERE view.user_id = #{userId}-->
+    <!--and view.del = 1-->
+    <!--and user.user_id = view.user_id-->
+    <!--ORDER by view.id DESC-->
+    <!--limit #{start},#{end}-->
+  <!--</select>-->
+  <select id="selectListByUserId" parameterType="map" resultMap="ViewVoMap">
+    SELECT
+    <include refid="ViewVo_column_List"/>
+    FROM user,view
+    WHERE view.user_id = #{userId}
+    and view.del = 1
+    and user.user_id = view.user_id
+    ORDER by view.id DESC
+    limit #{start},#{end}
+  </select>
+  <update id="updateDelByViewId" parameterType="int">
+    UPDATE view
+    SET del = 0
+    WHERE id = #{viewId}
+    AND del = 1
+  </update>
+</mapper>

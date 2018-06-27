@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.srg.exchange.dao.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.srg.exchange.pojo.Comment" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="view_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="del" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <resultMap id="CommentVoMap" type="com.srg.exchange.vo.CommentVo" >
+    <constructor >
+      <arg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="avatarurl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ViewCommentVoMap" type="com.srg.exchange.vo.ViewCommentVo" >
+    <constructor >
+      <arg column="avatarurl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="comment_content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="view_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="view_content" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, view_id, content, del, create_time, update_time
+  </sql>
+  <sql id="CommentVo_List" >
+    comment.id AS id, comment.user_id AS user_id,comment.content AS content,user.username AS username,
+    user.avatarurl as avatarurl,comment.create_time AS create_time
+  </sql>
+  <sql id="ViewCommentVo_List" >
+    comment.content AS comment_content,user.username AS username,
+    user.avatarurl as avatarurl,comment.create_time AS create_time,view.id as view_id,
+    view.content as view_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=INTEGER}
+    AND del = 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.srg.exchange.pojo.Comment" >
+    insert into comment (id, user_id, view_id, 
+      content, del, create_time, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{viewId,jdbcType=INTEGER},
+      #{content,jdbcType=VARCHAR}, 1, now(), now()
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.srg.exchange.pojo.Comment" >
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="viewId != null" >
+        view_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="viewId != null" >
+        #{viewId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        now(),
+      </if>
+      <if test="updateTime != null" >
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.srg.exchange.pojo.Comment" >
+    update comment
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="viewId != null" >
+        view_id = #{viewId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = now(),
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+    AND del = 1
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.srg.exchange.pojo.Comment" >
+    update comment
+    set user_id = #{userId,jdbcType=VARCHAR},
+      view_id = #{viewId,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+    AND del = 1
+  </update>
+  <select id="selectVoListByViewId" parameterType="string" resultMap="CommentVoMap">
+    SELECT
+    <include refid="CommentVo_List"/>
+    FROM user,comment
+    WHERE comment.view_id = #{viewId}
+    AND comment.user_id = user.user_id
+    AND comment.del = 1
+  </select>
+  <!--<select id="listViewCommentByUserId" parameterType="map" resultMap="ViewCommentVoMap">-->
+    <!--SELECT-->
+    <!--<include refid="ViewCommentVo_List"/>-->
+    <!--FROM user,view,comment-->
+    <!--WHERE user.user_id = #{userId}-->
+    <!--AND view.user_id = user.user_id-->
+    <!--AND comment.view_id = view.id-->
+    <!--AND view.del = 1-->
+    <!--AND comment.del = 1-->
+    <!--ORDER BY comment.create_time DESC-->
+    <!--limit #{start},#{end}-->
+  <!--</select>-->
+  <select id="listViewCommentByUserId" parameterType="map" resultMap="ViewCommentVoMap">
+    SELECT
+    <include refid="ViewCommentVo_List"/>
+    FROM user,view,comment
+    WHERE user.user_id = comment.user_id
+    AND comment.view_id = view.id
+    AND view.del = 1
+    AND comment.del = 1
+    AND view.id in (
+      select view.id
+      from view,user
+      WHERE view.user_id = user.user_id
+      and user.user_id = #{userId}
+    )
+    ORDER BY comment.create_time DESC
+    limit #{start},#{end}
+  </select>
+  <update id="updateDelById" parameterType="int">
+    UPDATE comment
+    SET del = 0
+    WHERE id = #{id}
+    AND del = 1
+  </update>
+</mapper>
