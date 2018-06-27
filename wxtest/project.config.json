@@ -1,0 +1,95 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.98",
+	"appid": "wx4da78e4cd8610225",
+	"projectname": "wxtest",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "welcome",
+					"pathName": "pages/welcome/welcome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "add",
+					"pathName": "pages/addMessage/addMessage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ulist",
+					"pathName": "pages/ulist/ulist",
+					"query": "openid=1"
+				},
+				{
+					"id": -1,
+					"name": "about",
+					"pathName": "pages/about/about",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "publish",
+					"pathName": "pages/publish/publish",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "TOu",
+					"pathName": "pages/Tou/Tou",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "real",
+					"pathName": "pages/real/real",
+					"query": ""
+				}
+			]
+		}
+	}
+}

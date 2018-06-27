@@ -1,0 +1,73 @@
+/* pages/about/about.wxss */
+.reply{
+  margin-right: 60rpx
+}
+.navigator-item{
+  display:flex;
+  flex-direction:row;
+  background: #EEEDF2;
+}
+.viPhoto{
+  flex: 2;
+  height: 150rpx; overflow: hidden;
+}
+.poster{
+  width: 100%; height: 150rpx; z-index: 8;
+}
+.noPhoto{
+  width: 100%; background: #EEEEEE; height: 150rpx; line-height: 150rpx; text-align: center; color: #999; font-size: 26rpx
+}
+.wiPhoto{
+  width: 100%; height: 150rpx; overflow: hidden; position: relative; 
+}
+.textCms{
+  flex: 4; width: 97%; color: #333; padding-left: 3%; overflow: hidden;
+}
+
+.touch-item {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ overflow: hidden;
+ border-bottom: 2rpx #f5f5f5 solid;
+}
+.content {
+ width: 100%;
+ padding: 15px;
+ margin-right:15px;
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+ -webkit-transform: translateX(90px);
+ transform: translateX(90px);
+ margin-left: -90px
+}
+.UserName{
+  display:flex; flex-direction:row;
+ margin-bottom: 10rpx
+}
+.UserName .UserPic{
+  flex: 4;
+  height: 80rpx;overflow: hidden
+}
+.UserName .UserPic .userTou{
+  width: 72rpx; height: 72rpx; border-radius: 50%; border: 2rpx #e3e3e3 solid; padding: 2rpx; background:#fff;
+  float: left
+}
+.UserName .UserPic .datetime{
+  font-size: 25rpx;color: #CDCDCD;padding-right: 5rpx
+}
+.UserName .UserPic .user{
+  font-size: 35rpx;padding-right: 5rpx
+}
+.text{
+  font-size: 35rpx;
+  color: #C0C0C0;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  padding-top:45rpx 
+}
+.comment{
+  padding: 10rpx
+}
+

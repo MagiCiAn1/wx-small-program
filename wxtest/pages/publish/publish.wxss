@@ -1,0 +1,163 @@
+/* pages/publish/publish.wxss */
+.Head{
+  display:flex;
+  background: #fff;
+}
+.Head .header{
+
+  width: 800rpx; height: 200rpx; 
+  background: #fff;
+  float: left
+}
+.Tou{
+  height:450rpx;
+  margin-left:7.5%;
+  width: 100%;
+}
+.Banner
+{
+
+ margin-left:20rpx;
+ margin-right:20rpx;
+   display:flex; 
+   flex-direction:row;
+
+  height: 120rpx;
+  background: #fff;
+  padding: 5rpx;
+  overflow: hidden
+}
+.Banner .b1{
+
+  width: 100rpx; height: 100rpx;
+padding: 10rpx; 
+  background:#fff;
+ margin-left: 85rpx;
+  float: left
+}
+.Banner .b2{
+   margin-left: 100rpx;
+  width: 100rpx; height: 100rpx;
+
+
+ padding: 10rpx; background:#fff;
+  float: left
+}
+.Banner .b3{
+margin-left: 110rpx;
+  width: 100rpx; height: 100rpx;
+  padding: 10rpx; background:#fff;
+  float: left
+}
+.Ban
+{
+   display:flex; 
+   flex-direction:row;
+    margin-left:20rpx;
+ margin-right:20rpx;
+
+  height: 120rpx;
+  background: #fff;
+  padding: 5rpx;
+  overflow: hidden
+}
+.Ban .b4{
+  width: 100rpx; height: 100rpx;
+  padding: 10rpx; 
+  background:#fff;
+ margin-left: 85rpx;
+  float: left
+}
+.Ban .b5{
+  width: 100rpx; height: 100rpx;
+  padding: 10rpx; background:#fff;
+   margin-left: 100rpx;
+  float: left
+}
+.Ban .b6{
+  width: 100rpx; height: 100rpx;
+ padding: 10rpx; background:#fff;
+  margin-left: 110rpx;
+  float: left
+}
+.Word{
+  
+ margin-left:20rpx;
+ margin-right:20rpx;
+   display:flex; 
+   flex-direction:row;
+  
+  height: 60rpx;
+  background: #fff;
+  padding: 5rpx;
+  overflow: hidden
+
+}
+.Wor{
+  
+ margin-left:20rpx;
+ margin-right:20rpx;
+   display:flex; 
+   flex-direction:row;
+   
+  height: 60rpx;
+  background: #fff;
+  padding: 5rpx;
+  overflow: hidden
+
+}
+.Word1{
+  padding: 5rpx;
+
+  margin-left: 72rpx;
+
+}
+.Word2{
+  padding: 20rpx;
+
+  margin-right: 72rpx;
+}
+.Word3{
+  padding: 5rpx;
+
+   margin-left: 80rpx;
+}
+.Word4{
+  padding: 5rpx;
+  
+  margin-left: 72rpx;
+  margin-right: 10rpx;
+}
+.Word5{
+  padding: 5rpx;
+
+  margin-left: 85rpx;
+  margin-right: 20rpx;
+}
+.Word6{
+  padding: 5rpx;
+  float:right;
+   margin-left: 85rpx;
+   margin-right: 35rpx;
+}
+.Word.w1{
+
+  font-size: 40rpx;
+}
+.Word.w2{
+  font-size: 35rpx;
+}
+.Word.w3{
+  font-size: 35rpx;
+}
+.Word.w4{
+margin-left: 5rpx;
+
+  font-size: 40rpx;
+}
+.Word.w5{
+  font-size: 35rpx;
+}
+.Word.w6{
+  font-size: 35rpx;
+}

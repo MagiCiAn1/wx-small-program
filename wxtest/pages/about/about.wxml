@@ -1,0 +1,31 @@
+<!--pages/about/about.wxml-->
+<view wx:if='{{reply!=null}}'>
+<view class="reply"wx:for="{{reply}}"wx:key="">
+  <view class='content'>
+  <view class='UserName'>
+          <view class='UserPic'>
+            <image src='{{item.avatarurl}}' class='userTou'></image>
+            <view class='user'>{{item.username}}</view>
+            <view class='datetime'>{{item.createTime}}</view>
+          </view>
+  </view>
+  <view class='comment'>{{item.commentContent}}</view>
+    <navigator url='../detail/detail?id={{item.viewId}}' class='navigator-item'>
+      <view class='viPhoto'>
+        <view class='wiPhoto'>
+          <view wx:if="{{item.photoUrl.length!=0}}">
+            <image class='poster' src='{{item.photoUrl[0]}}' mode='aspectFill'></image>
+          </view>
+          <view wx:else class='noPhoto'>
+            No Photo
+          </view>
+        </view>
+      </view>
+      <text class='textCms'>{{item.viewContent}}</text>
+    </navigator>  
+  </view>
+</view>
+</view>
+<view wx:else>
+  <text class='text'>---------------暂无消息---------------</text>
+</view>

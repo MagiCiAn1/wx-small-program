@@ -1,0 +1,20 @@
+<!--pages/addMessage/addMessage.wxml-->
+<view class='addMain'>
+  <form bindsubmit='formSubmit'>
+    <input type="text" name="longitude" value="{{longitude}}" hidden="true"></input>
+    <input type="text" name="latitude" value="{{latitude}}" hidden="true"></input>
+    <input type="text" name="address" value="{{address}}" hidden="true"></input>
+    <view class='mbInput'>
+      <view class='miaoshu'>
+        <textarea class='section' maxlength='200' name="content" value='{{content}}' bindinput='charchange'></textarea>
+      </view>
+    </view>
+    <view bindtap='checkimg' class='checkimg'>
+      <image wx:for="{{imglist}}" class="uploadPics" mode='aspectFill' src="{{item}}" wx:key=""></image>
+      <image src="http://p92e5qgqt.bkt.clouddn.com/upic.png" class='uploadPic' mode="widthFix"></image>
+    </view>
+    <view class='mbBtn'>
+      <button class='vBtn_ok' form-type='submit' loading='{{loading}}' disabled='{{disabled}}'>发布</button>
+    </view>
+  </form>
+</view>

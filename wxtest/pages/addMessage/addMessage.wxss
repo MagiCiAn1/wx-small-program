@@ -1,0 +1,43 @@
+/* pages/addMessage/addMessage.wxss */
+page {
+  background-color: #F5F5F5;
+  height: 100%;
+  line-height: 1.6;
+}
+.mbInput{
+  background: #fff;
+  width: 90%;
+  padding: 0 5%;
+  border-top: 2rpx #F5F5F5 dashed;
+  border-bottom: 2rpx #F5F5F5 dashed;
+}
+.checkimg{
+  width: 90%; background: #fff;
+  border-top: 2rpx #F5F5F5 dashed;
+  height: 140rpx; overflow: hidden; padding: 3% 5% 
+}
+
+.section{
+  padding: 25rpx 0 10rpx 0; width: 100%;
+}
+
+.mbBtn{ width: 90%; margin: 40rpx auto 0;}
+
+.mbBtn button::after {
+  border:0;
+}
+
+.mbBtn .vBtn_ok{
+   border: 0; background: #fff; color: #666;
+   margin-top: 30rpx; margin-bottom: 20rpx; border-radius: 100rpx
+}
+
+.xuanBtn{
+  display: flex;
+  flex-direction: row;
+  padding: 0 40rpx
+} 
+
+.uploadPic{ width: 20%; margin-right: 20rpx}
+.uploadPics{ width: 20%; height: 135rpx; margin-right: 20rpx;}
+.miaoshu{ padding-bottom: 20rpx}

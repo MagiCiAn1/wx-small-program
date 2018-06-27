@@ -1,0 +1,76 @@
+<!--pages/publish/publish.wxml-->
+<view class='Head'>
+    <view class='header' style="background-image:url('http://p92e5qgqt.bkt.clouddn.com/水墨图.png');">
+    </view >
+</view>
+<view class='Tou'>
+  <image src='http://p92e5qgqt.bkt.clouddn.com/笑.png' class='T1'></image>
+</view>
+<view class='Banner'>
+  <view class='Banner1'>
+  <navigator url='../addMessage/addMessage?classify=0'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/问答.png' class='b1' ></image>
+  </navigator>
+  </view>
+  <view class='Banner2'>
+  <navigator url='../addMessage/addMessage?classify=1'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/吐槽.png' class='b2'></image>
+  </navigator>
+  </view>
+  <view class='Banner3'>
+  <navigator url='../addMessage/addMessage?classify=2'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/二手.png' class='b3'></image>
+  </navigator>
+  </view>
+</view>
+<view class='Word'>
+  <view class='Word1'>
+  <navigator url='../addMessage/addMessage?classify=0'>
+    <view class='w1'>咨询求助</view>
+  </navigator>
+  </view>
+  <view class='Word3'>
+   <navigator url='../addMessage/addMessage?classify=1'>
+    <view class='w2'>爆料吐槽</view>
+    </navigator>
+  </view>
+  <view class='Word3'>
+  <navigator url='../addMessage/addMessage?classify=2'>
+    <view class='w3'>闲置二手</view>
+  </navigator>
+  </view>
+</view>
+<view class='Ban'>
+  <view class='Banner4'>
+    <navigator url='../addMessage/addMessage?classify=3'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/失物.png' class='b4'></image>
+    </navigator>
+  </view>
+  <view class='Banner5'>
+    <navigator url='../addMessage/addMessage?classify=4'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/hearts2.png' class='b5'></image>
+    </navigator>
+  </view>
+  <view class='Banner6'>
+    <navigator url='../addMessage/addMessage?classify=5'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/兼职.png' class='b6'></image>
+    </navigator>
+  </view>
+</view>
+<view class='Wor'>
+  <view class='Word4'>
+  <navigator url='../addMessage/addMessage?classify=3'>
+    <view class='w4'>失物招领</view>
+  </navigator>
+  </view>
+  <view class='Word5'>
+  <navigator url='../addMessage/addMessage?classify=4'>
+    <view class='w5'>表白墙</view>
+  </navigator>
+  </view>
+  <view class='Word6'>
+  <navigator url='../addMessage/addMessage?classify=5'>
+    <view class='w6'>兼职招聘</view>
+  </navigator>
+  </view>
+</view>

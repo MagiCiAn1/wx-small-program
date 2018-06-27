@@ -1,0 +1,32 @@
+/* pages/real/real.wxss */
+.name{
+  display: flex;
+  padding-left: 12.5%;
+  padding-top: 8%
+}
+.name .text{
+  border-left: 2rpx black solid;
+  border-top:2rpx black solid;
+  border-bottom: 2rpx black solid;
+  border-top-left-radius:10%;
+  border-bottom-left-radius: 10%; 
+  padding-left:3%;
+  padding-right: 3%;
+  padding-top: 2.5%
+}
+.name .input1{
+  width: 60%;
+  float: right;
+  border: 2rpx black solid;
+  border-top-right-radius:5%;
+  border-bottom-right-radius: 5%;
+  padding: 3%; 
+}
+.sub{
+  float: rightl;
+  margin-right: 18%
+}
+.res{
+  float: left;
+  margin-left:3% 
+}

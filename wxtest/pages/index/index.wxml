@@ -1,0 +1,99 @@
+<!--index.wxml-->
+<view class='Head'>
+  <view class='Header'>
+    <image src='http://p92e5qgqt.bkt.clouddn.com/timg.jpg' class='header'></image>
+  </view>
+</view>
+
+<view class='Banner'>
+  <view class='Banner1'> 
+  <navigator url="../classify/classify?id=0">
+      <image src='http://p92e5qgqt.bkt.clouddn.com/问答.png' class='b1'></image>
+  </navigator>
+  </view>
+  <view class='Banner2'>
+  <navigator url="../classify/classify?id=1">
+    <image src='http://p92e5qgqt.bkt.clouddn.com/吐槽.png' class='b2'></image>
+  </navigator>
+  </view>
+  <view class='Banner3'>
+  <navigator url="../classify/classify?id=2">
+    <image src='http://p92e5qgqt.bkt.clouddn.com/二手.png' class='b3'></image>
+  </navigator>
+  </view>
+</view>
+<view class='Word'>
+  <view class='Word3'>
+  <view class='w1'>咨询求助</view>
+  </view>
+  <view class='Word3'>
+    <view class='w2'>爆料吐槽</view>
+  </view>
+  <view class='Word3'>
+    <view class='w3'>闲置二手</view>
+  </view>
+</view>
+<view class='Ban'>
+  <view class='Banner4'>
+  <navigator url="../classify/classify?id=3">
+    <image src='http://p92e5qgqt.bkt.clouddn.com/失物.png' class='b4'></image>
+  </navigator>
+  </view>
+  <view class='Banner5'>
+  <navigator url="../classify/classify?id=4">
+    <image src='http://p92e5qgqt.bkt.clouddn.com/hearts2.png' class='b5'></image>
+  </navigator>
+  </view>
+  <view class='Banner6'>
+  <navigator url="../classify/classify?id=5">
+    <image src='http://p92e5qgqt.bkt.clouddn.com/兼职.png' class='b6'></image>
+  </navigator>
+  </view>
+</view>
+<view class='Wor'>
+  <view class='Word4'>
+    <view class='w4'>失物招领</view>
+  </view>
+  <view class='Word5'>
+    <view class='w5'>表白墙</view>
+  </view>
+  <view class='Word6'>
+    <view class='w6'>兼职招聘</view>
+  </view>
+</view>
+<view class='container'>
+  <scroll-view scroll-y="true" >
+    <block wx:for="{{text}}" wx:key="">
+      <view  class='item'>
+        <navigator url='../detail/detail?id={{item.id}}' class='navigator-item'>
+        <view class='UserName'>
+          <view class='UserPic'>
+            <image src='{{item.avatarurl}}' class='userTou'></image>
+            <view class='user'>{{item.username}}</view>
+            <view class='datetime'>{{item.createTime}}</view>
+          </view>
+        </view>
+        <text class="textCms">{{item.content}}</text>
+        <view class='viPhoto' wx:if="{{item.photoUrl.length!=0}}">
+          <view class='wiPhoto'>
+            
+              <swiper indicator-dots='true' autoplay='true' interval='3000' duration='500'>
+              <block wx:for='{{item.photoUrl}}' wx:key=''>
+                <swiper-item >
+                  <image src='{{item}}' class='poster'></image>
+                </swiper-item>
+              </block>
+              </swiper>
+              
+            
+          </view>
+        </view>
+        <view class='label'>
+          <label class='time'><image src='http://p92e5qgqt.bkt.clouddn.com/time.png' class='tmimg'></image>{{item.datetime}} </label>
+        </view>
+        </navigator>
+      </view> 
+    </block>
+    
+  </scroll-view>
+</view>

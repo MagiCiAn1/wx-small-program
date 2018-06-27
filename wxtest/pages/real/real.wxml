@@ -1,0 +1,49 @@
+<!--pages/real/real.wxml-->
+<view>
+  <form bindsubmit='formSubmit'>
+  <view class='name'>
+    <view class='text'>姓名</view>
+    <view class='input1'><input type='text' name='name' placeholder="姓名" ></input></view>
+  </view>
+  <view class='name'>
+    <text class='text'>卡号</text>
+    <input type='number' name='card' placeholder='10位校园卡号' class='input1' maxlength='10' bindinput='valueChange' value='{{card}}'></input>
+  </view>
+  <view class='name'>
+    <text class='text'>学校</text>
+    <view class='input1'>
+    <picker value='{{s}}' range='{{school}}' class='picker' bindchange="bindSchoolChange" name='school'>
+      <view class='picker'>
+      {{school[s]}}
+      </view>
+    </picker>
+    </view>
+  </view>
+  <view class='name'>
+    <text class='text'>学院</text>
+    <view class='input1'>
+    <picker value='{{m}}' range='{{major}}' bindchange="bindMajorChange" name='major'>
+      <view class='picker'>
+      {{major[m]}}
+      </view>
+    </picker>
+    </view>
+  </view>
+  <view class='name'>
+    <text class='text'>性别</text>
+    <view class='input1'>
+    <picker value='{{se}}' range='{{sex}}' bindchange="bindSexChange" name='sex'>
+      <view class='picker'>
+      {{sex[m]}}
+      </view>
+    </picker>
+    </view>
+  </view>
+  <view class='name'>
+  <button form-type='reset' class='res'>重置</button>
+  <button form-type='submit' class='sub'>提交</button>
+  </view>
+  
+  </form>
+
+</view>

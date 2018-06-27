@@ -1,0 +1,25 @@
+<!--pages/ulist/ulist.wxml-->
+<view wx:if='{{list!=null}}'>
+<view class="touch-item {{item.isTouchMove ? 'touch-move-active' :''}}" data-index='{{index}} 'wx:for="{{list}}" bindtouchstart='touchstart' bindtouchmove='touchmove' wx:key="">
+  <view class='content'>
+    <navigator url='../detail/detail?id={{item.id}}' class='navigator-item'>
+      <view class='viPhoto'>
+        <view class='wiPhoto'>
+          <view wx:if="{{item.photoUrl.length!=0}}">
+            <image class='poster' src='{{item.photoUrl[0]}}' mode='aspectFill'></image>
+          </view>
+          <view wx:else class='noPhoto'>
+            No Photo
+          </view>
+        
+        </view>
+      </view>
+      <text class='textCms'>{{item.content}}</text>
+    </navigator>  
+  </view>
+  <view class='del' catchtap='del' data-index='{{index}}' data-id='{{item.id}}'>删除</view>
+</view>
+</view>
+<view wx:else>
+  <text class='text'>---------------暂无消息---------------</text>
+</view>

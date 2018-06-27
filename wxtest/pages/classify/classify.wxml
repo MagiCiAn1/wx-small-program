@@ -1,0 +1,42 @@
+<!--pages/classify/classify.wxml-->
+<import src="../template/loading"/>
+<view class='container'>
+  <block wx:if="{{nsdata}}">
+      <block wx:for="{{text}}" wx:key="">
+      <view  class='item'>
+        <navigator url='../detail/detail?id={{item.id}}' class='navigator-item'>
+        <view class='UserName'>
+          <view class='UserPic'>
+            <image src='{{item.avatarurl}}' class='userTou'></image>
+            <view class='user'>{{item.username}}</view>
+            <view class='datetime'>{{item.createTime}}</view>
+          </view>
+        </view>
+        <text class="textCms">{{item.content}}</text>
+        <view class='viPhoto' wx:if="{{item.photoUrl.length!=0}}">
+          <view class='wiPhoto'>
+            
+              <swiper indicator-dots='true' autoplay='true' interval='3000' duration='500'>
+              <block wx:for='{{item.photoUrl}}' wx:key=''>
+                <swiper-item >
+                  <image src='{{item}}' class='poster'></image>
+                </swiper-item>
+              </block>
+              </swiper>
+              
+            
+          </view>
+        </view>
+        <view class='label'>
+          <label class='time'><image src='http://p92e5qgqt.bkt.clouddn.com/time.png' class='tmimg'></image>{{item.datetime}} </label>
+        </view>
+        </navigator>
+      </view> 
+    </block>
+  </block>
+  <block wx:else>
+  <template is="noView" />
+  </block>
+    
+</view>
+

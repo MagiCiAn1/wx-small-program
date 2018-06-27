@@ -1,0 +1,8 @@
+<!--pages/Tou/Tou.wxml-->
+<view class='Head'>
+  <view class='header' style="background-image:url('http://p92e5qgqt.bkt.clouddn.com/背景.png');background-size:{{windowWidth}}px,{{windowHeight}}px;">      
+  <view >
+  <button class='h' style="background-image:url(http://p92e5qgqt.bkt.clouddn.com/文字2.png);" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+  </view>
+  </view>       
+</view>

@@ -1,0 +1,18 @@
+/* pages/Tou/Tou.wxss */
+.Head{
+display:flex;
+}
+.Head .header{
+
+  width: 750rpx; height: 1200rpx; 
+
+  float: left
+}
+.Head .h{
+  margin-top: 290rpx;
+  margin-left: 260rpx;
+   width: 250rpx; height:250rpx; border-radius: 50%; border: 2rpx #e3e3e3 solid; padding: 2rpx; background:#fff;
+  float: left;
+  background-size: 250rpx 250rpx;
+  background-repeat: no-repeat;
+}

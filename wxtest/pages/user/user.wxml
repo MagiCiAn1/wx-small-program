@@ -1,0 +1,27 @@
+<!--pages/user/user.wxml-->
+<view>
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarurl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.username}}</text>
+  </view>
+  <view class="usermotto">
+    
+    <navigator class="list_a" url="../ulist/ulist?openid={{openid}}">
+        我发布的
+    </navigator>
+    <navigator class="list_b" url="../about/about">
+        关于我的
+    </navigator>
+    <view class='shi' bindtap='redirect'>
+        <view class='text'>
+          <view class='h'>
+          实名认证({{zhuang}})
+          </view>
+          <view class='zhuang'>
+          >
+          </view>
+        </view> 
+    </view>    
+  </view>
+</view>
+
